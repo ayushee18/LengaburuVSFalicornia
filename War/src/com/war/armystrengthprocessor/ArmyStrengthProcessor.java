@@ -53,12 +53,12 @@ public class ArmyStrengthProcessor {
 
 
     public void SubsititutionAndAdjacentRuleImplemetation(ArmyEntity lengaburu, ArmyEntity falicornia) {
-        if (Math.round(falicornia.getHorses() / 2 ) > armyDeploy.get("horses")) {
-            double difference = Math.round(falicornia.getHorses() / 2 ) - armyDeploy.get("horses");
+    if (Math.round(falicornia.getHorses() ) > 2*armyDeploy.get("horses")) {
+            double difference = Math.round(falicornia.getHorses()) - 2*armyDeploy.get("horses");
             double tempValue = armyDeploy.get("elephants");
             if (lengaburu.getElephants() >= difference / 4) {
-                armyDeploy.put("elephants", tempValue + difference);
-                lengaburu.setElephants(lengaburu.getElephants() - difference);
+                armyDeploy.put("elephants", tempValue + Math.round(difference/4));
+                lengaburu.setElephants(lengaburu.getElephants() - Math.round(difference/4));
             } else {
                 armyDeploy.put("elephants", tempValue + lengaburu.getElephants());
                 lengaburu.setElephants(0);
